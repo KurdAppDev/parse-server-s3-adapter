@@ -107,10 +107,10 @@ class S3Adapter {
     if (options.metadata && typeof options.metadata === 'object') {
       params.Metadata = options.metadata;
     }
-    if (options.tags && typeof options.tags === 'object') {
+    /*if (options.tags && typeof options.tags === 'object') {
       const serializedTags = serialize(options.tags);
       params.Tagging = serializedTags;
-    }
+    }*/
     return this.createBucket().then(() => new Promise((resolve, reject) => {
       this._s3Client.upload(params, (err, response) => {
         if (err !== null) {
